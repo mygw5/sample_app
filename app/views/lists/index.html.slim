@@ -1,0 +1,13 @@
+div.list_wrap
+- @lists.each do |list|
+  div.list_box
+    - if list.image.attached?
+      = image_tag list.image, size: "200x200"
+    - else
+      = image_tag 'no_image', size: "200x200"
+
+    div.list_comment
+      span.list_body
+        = list.body
+      span.list_title
+      =link_to list.title, list_path(list.id)
